@@ -68,7 +68,7 @@ public class SubmarineController : MonoBehaviour {
 	void Grab(){
 		if (down) {
 			Greifarm.Translate (new Vector3 (-1, 0, 0) * Time.deltaTime * grabSpeed);
-			if(Greifarm.localPosition.y <= -1.5){
+			if(Greifarm.localPosition.y <= -2){
 				down = false;
 				up = true;
 			}
