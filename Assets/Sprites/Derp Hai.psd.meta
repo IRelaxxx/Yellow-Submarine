@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: e9bf4595f2755bf4bb7e609f2f5543ce
-timeCreated: 1470333360
+guid: ca8733cab952b424aa1c97c62efb5f5d
+timeCreated: 1470333859
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Chest_0
+    21300000: Derp Hai_0
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -54,15 +54,15 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Chest_0
+      name: Derp Hai_0
       rect:
         serializedVersion: 2
-        x: 46
-        y: 51
-        width: 155
-        height: 111
+        x: 7
+        y: 55
+        width: 468
+        height: 163
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
