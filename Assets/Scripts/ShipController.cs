@@ -24,13 +24,19 @@ public class ShipController : MonoBehaviour {
 		float x = Input.GetAxis ("Horizontal") * Time.fixedDeltaTime;
 
 		if(x > 0){
-			turnsRight = true;
+			if(turnsRight = false){
+				turnsRight = true;
+				transform.rotation = Quaternion.Euler (0, 180, 0);
+			}
 		}
 		else{
-			turnsRight = false;
+			if(turnsRight = true){
+				turnsRight = false;
+				transform.rotation = Quaternion.Euler (0, 0, 0);
+			}
+
 		}
 		rb.velocity = new Vector2 (x, 0).normalized * MoveSpeed;
-		print (new Vector2 (x, 0).normalized);
 	}
 
 	void ReleaseSub(){
@@ -41,6 +47,7 @@ public class ShipController : MonoBehaviour {
 		Sub.GetComponent<Rigidbody2D> ().WakeUp ();
 		Sub.GetComponent<BoxCollider2D> ().enabled = true;
 		Sub.GetComponent<SubmarineController> ().enabled = true;
+		rb.constraints = RigidbodyConstraints2D.FreezeAll;
 		this.enabled = false;
 	}
 }

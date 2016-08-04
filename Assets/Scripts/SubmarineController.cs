@@ -3,7 +3,6 @@ using System.Collections;
 
 public class SubmarineController : MonoBehaviour {
 
-	bool turnsRight = false;
 	Rigidbody2D rb;
 
 	public int MoveSpeed;
@@ -30,12 +29,6 @@ public class SubmarineController : MonoBehaviour {
 		if(y > 0 && transform.position.y >= 0){
 			y = 0;
 		}
-		if(x > 0){
-			turnsRight = true;
-		}
-		else{
-			turnsRight = false;
-		}
 		rb.velocity = new Vector2 (x, y).normalized * MoveSpeed;
 	}
 
@@ -47,6 +40,7 @@ public class SubmarineController : MonoBehaviour {
 		transform.position = Ship.GetComponent<ShipController> ().SubHolder.position;
 		rb.Sleep ();
 		Ship.GetComponent<Rigidbody2D> ().WakeUp ();
+		Ship.GetComponent<Rigidbody2D> ().constraints = RigidbodyConstraints2D.FreezeRotation;
 		this.enabled = false;
 	}
 }
