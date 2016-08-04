@@ -36,7 +36,10 @@ public class ShipController : MonoBehaviour {
 	void ReleaseSub(){
 		Sub.transform.SetParent (null, true);
 		Camera.main.gameObject.transform.SetParent (Sub.transform);
-		Sub.transform.position -= Vector3.down * 2;
+		Sub.transform.position -= Vector3.down * -2;
+		rb.Sleep ();
+		Sub.GetComponent<Rigidbody2D> ().WakeUp ();
+		Sub.GetComponent<BoxCollider2D> ().enabled = true;
 		Sub.GetComponent<SubmarineController> ().enabled = true;
 		this.enabled = false;
 	}

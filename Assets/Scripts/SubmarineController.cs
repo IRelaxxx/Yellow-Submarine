@@ -17,7 +17,9 @@ public class SubmarineController : MonoBehaviour {
 	void Update () {
 		float dist = Vector3.Distance (transform.position, Ship.transform.position);
 		if(dist < 3){
-			DockAtShip ();
+			if (Input.GetKeyDown (KeyCode.Space)) {
+				DockAtShip ();
+			}
 		}
 	}
 
@@ -38,10 +40,13 @@ public class SubmarineController : MonoBehaviour {
 	}
 
 	void DockAtShip(){
+		GetComponent<BoxCollider2D> ().enabled = false;
 		transform.SetParent (Ship.transform, true);
 		Camera.main.gameObject.transform.SetParent (Ship.transform);
 		Ship.GetComponent<ShipController> ().enabled = true;
 		transform.position = Ship.GetComponent<ShipController> ().SubHolder.position;
+		rb.Sleep ();
+		Ship.GetComponent<Rigidbody2D> ().WakeUp ();
 		this.enabled = false;
 	}
 }
