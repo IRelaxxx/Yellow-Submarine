@@ -113,13 +113,16 @@ public class SubmarineController : MonoBehaviour {
 		if(Bat <= 0){
 			Bat = 0;
 			block = true;
+			rb.velocity = Vector2.zero;
 		}
 		if(OX <= 0){
 			OX = 0;
 			block = true;
+			rb.velocity = Vector2.zero;
 		}
 		if(Pres >= maxPres){
 			block = true;
+			rb.velocity = Vector2.zero;
 		}
 	}
 }
