@@ -35,12 +35,12 @@ public class SubmarineController : MonoBehaviour {
 	void DockAtShip(){
 		GetComponent<BoxCollider2D> ().enabled = false;
 		transform.SetParent (Ship.transform, true);
-		Camera.main.gameObject.transform.SetParent (Ship.transform);
 		Ship.GetComponent<ShipController> ().enabled = true;
 		transform.position = Ship.GetComponent<ShipController> ().SubHolder.position;
 		rb.Sleep ();
 		Ship.GetComponent<Rigidbody2D> ().WakeUp ();
 		Ship.GetComponent<Rigidbody2D> ().constraints = RigidbodyConstraints2D.FreezeRotation;
+		Camera.main.GetComponent<Follow> ().target = Ship.transform;
 		this.enabled = false;
 	}
 }

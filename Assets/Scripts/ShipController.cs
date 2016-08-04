@@ -22,15 +22,14 @@ public class ShipController : MonoBehaviour {
 
 	void FixedUpdate(){
 		float x = Input.GetAxis ("Horizontal") * Time.fixedDeltaTime;
-
 		if(x > 0){
-			if(turnsRight = false){
+			if(turnsRight == false){
 				turnsRight = true;
 				transform.rotation = Quaternion.Euler (0, 180, 0);
 			}
 		}
-		else{
-			if(turnsRight = true){
+		else if(x < 0){
+			if(turnsRight == true){
 				turnsRight = false;
 				transform.rotation = Quaternion.Euler (0, 0, 0);
 			}
@@ -41,13 +40,13 @@ public class ShipController : MonoBehaviour {
 
 	void ReleaseSub(){
 		Sub.transform.SetParent (null, true);
-		Camera.main.gameObject.transform.SetParent (Sub.transform);
 		Sub.transform.position -= Vector3.down * -2;
 		rb.Sleep ();
 		Sub.GetComponent<Rigidbody2D> ().WakeUp ();
 		Sub.GetComponent<BoxCollider2D> ().enabled = true;
 		Sub.GetComponent<SubmarineController> ().enabled = true;
 		rb.constraints = RigidbodyConstraints2D.FreezeAll;
+		Camera.main.GetComponent<Follow> ().target = Sub.transform;
 		this.enabled = false;
 	}
 }
