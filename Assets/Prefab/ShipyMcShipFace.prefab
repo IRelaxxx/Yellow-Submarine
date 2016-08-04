@@ -55,6 +55,7 @@ GameObject:
   - 4: {fileID: 4000012286827098}
   - 212: {fileID: 212000014256670114}
   - 61: {fileID: 61000012125708594}
+  - 114: {fileID: 114000011386676552}
   m_Layer: 0
   m_Name: Greifarm
   m_TagString: Untagged
@@ -73,7 +74,7 @@ GameObject:
   - 212: {fileID: 212000012470042778}
   - 50: {fileID: 50000012059159304}
   - 114: {fileID: 114000012493821962}
-  - 61: {fileID: 61000013460158148}
+  - 61: {fileID: 61000013489750762}
   m_Layer: 0
   m_Name: ShipyMcShipFace
   m_TagString: Untagged
@@ -115,8 +116,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011045546904}
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -0.005019834, y: -0.0073615946, z: 0}
-  m_LocalScale: {x: 1.2269245, y: 1.2549752, z: 100}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.32, y: 1.32, z: 100}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_Children: []
   m_Father: {fileID: 4000012018088948}
@@ -128,7 +129,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011489443956}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.67, y: 0, z: 0}
+  m_LocalPosition: {x: 53.01, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -176,15 +177,15 @@ BoxCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011045546904}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: -0.20251921, y: 0.000000023747338}
+  m_Offset: {x: -0.024245374, y: 0.010707616}
   serializedVersion: 2
-  m_Size: {x: 1.1549684, y: 0.85}
---- !u!61 &61000013460158148
+  m_Size: {x: 0.84036577, y: 0.57110924}
+--- !u!61 &61000013489750762
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -195,9 +196,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: -0.015768766, y: 0.32692683}
+  m_Offset: {x: -0.016975403, y: 0.62045765}
   serializedVersion: 2
-  m_Size: {x: 7.0687757, y: 2.905104}
+  m_Size: {x: 6.9542303, y: 3.3490849}
 --- !u!61 &61000013842388514
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -212,6 +213,17 @@ BoxCollider2D:
   m_Offset: {x: -0.000004172325, y: -0.016464688}
   serializedVersion: 2
   m_Size: {x: 4.03, y: 1.8934041}
+--- !u!114 &114000011386676552
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011045546904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ba1906b0c035894ab6b51a02e92e4ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114000012493821962
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -223,7 +235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d41f0891329a33f44b9f56c16be647ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 3
+  MoveSpeed: 5
   Sub: {fileID: 1000010505488190}
   SubHolder: {fileID: 4000010265843842}
 --- !u!114 &114000012536081552
@@ -240,6 +252,12 @@ MonoBehaviour:
   MoveSpeed: 2
   Ship: {fileID: 1000011489443956}
   Greifarm: {fileID: 4000012286827098}
+  grabSpeed: 1
+  Bat: 100
+  OX: 100
+  Pres: 0
+  OXNeedRate: 0.1
+  BatNeedRate: 1
 --- !u!212 &212000011923774958
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -267,7 +285,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
+  m_SortingLayerID: 1629026777
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 70f24ec8609cffd4da7dc06f71bbc5c8, type: 3}
   m_Color: {r: 0.862069, g: 1, b: 0, a: 1}
@@ -300,7 +318,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1185447499
+  m_SortingLayerID: 1629026777
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 859e098bc6a274947b3ead889934b435, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -333,7 +351,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1629026777
+  m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300002, guid: 70f24ec8609cffd4da7dc06f71bbc5c8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
