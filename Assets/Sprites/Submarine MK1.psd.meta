@@ -1,10 +1,11 @@
 fileFormatVersion: 2
 guid: 70f24ec8609cffd4da7dc06f71bbc5c8
-timeCreated: 1470329067
+timeCreated: 1470331620
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: Submarine MK1_0
+    21300002: Submarine MK1_1
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -61,6 +62,19 @@ TextureImporter:
         y: 168
         width: 403
         height: 208
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Submarine MK1_1
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 37
+        width: 156
+        height: 85
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

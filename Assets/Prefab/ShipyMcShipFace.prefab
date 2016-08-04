@@ -45,6 +45,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1000011045546904
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 4000012286827098}
+  - 212: {fileID: 212000014256670114}
+  - 61: {fileID: 61000012125708594}
+  m_Layer: 0
+  m_Name: Greifarm
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1000011489443956
 GameObject:
   m_ObjectHideFlags: 0
@@ -55,8 +72,8 @@ GameObject:
   - 4: {fileID: 4000014238255308}
   - 212: {fileID: 212000012470042778}
   - 50: {fileID: 50000012059159304}
-  - 61: {fileID: 61000011532849862}
   - 114: {fileID: 114000012493821962}
+  - 61: {fileID: 61000013460158148}
   m_Layer: 0
   m_Name: ShipyMcShipFace
   m_TagString: Untagged
@@ -87,8 +104,22 @@ Transform:
   m_LocalPosition: {x: 1.8, y: 0.75, z: 0}
   m_LocalScale: {x: 0.39841443, y: 0.40752324, z: 0.01}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
+  m_Children:
+  - {fileID: 4000012286827098}
   m_Father: {fileID: 4000014238255308}
+  m_RootOrder: 0
+--- !u!4 &4000012286827098
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011045546904}
+  m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: -0.005019834, y: -0.0073615946, z: 0}
+  m_LocalScale: {x: 1.2269245, y: 1.2549752, z: 100}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+  m_Children: []
+  m_Father: {fileID: 4000012018088948}
   m_RootOrder: 0
 --- !u!4 &4000014238255308
 Transform:
@@ -139,7 +170,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &61000011532849862
+--- !u!61 &61000012125708594
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011045546904}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: -0.20251921, y: 0.000000023747338}
+  serializedVersion: 2
+  m_Size: {x: 1.1549684, y: 0.85}
+--- !u!61 &61000013460158148
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -150,9 +195,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.015768766, y: 0.32692683}
   serializedVersion: 2
-  m_Size: {x: 0.16, y: 0.16}
+  m_Size: {x: 7.0687757, y: 2.905104}
 --- !u!61 &61000013842388514
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -194,6 +239,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MoveSpeed: 2
   Ship: {fileID: 1000011489443956}
+  Greifarm: {fileID: 4000012286827098}
 --- !u!212 &212000011923774958
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -257,6 +303,39 @@ SpriteRenderer:
   m_SortingLayerID: 1185447499
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 859e098bc6a274947b3ead889934b435, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+--- !u!212 &212000014256670114
+SpriteRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011045546904}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedWireframeHidden: 1
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 1629026777
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300002, guid: 70f24ec8609cffd4da7dc06f71bbc5c8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

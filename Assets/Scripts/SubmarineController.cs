@@ -7,6 +7,12 @@ public class SubmarineController : MonoBehaviour {
 
 	public int MoveSpeed;
 	public GameObject Ship;
+	public Transform Greifarm;
+	public float grabSpeed;
+
+	bool block = false;
+	bool down = false;
+	bool up = false;
 
 	void Start () {
 		rb = GetComponent<Rigidbody2D> ();
@@ -14,6 +20,17 @@ public class SubmarineController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if(Input.GetKeyDown(KeyCode.E)){
+			if (up == false && block == false) {
+				down = true;
+				block = true;
+			}
+		}
+
+		Grab ();
+
+		if (block)
+			return;
 		float dist = Vector3.Distance (transform.position, Ship.transform.position);
 		if(dist < 3){
 			if (Input.GetKeyDown (KeyCode.Space)) {
@@ -23,6 +40,9 @@ public class SubmarineController : MonoBehaviour {
 	}
 
 	void FixedUpdate(){
+		if (block)
+			return;
+		
 		float x = Input.GetAxis ("Horizontal") * Time.fixedDeltaTime;
 		float y = Input.GetAxis ("Vertical") * Time.fixedDeltaTime;
 
@@ -34,6 +54,7 @@ public class SubmarineController : MonoBehaviour {
 
 	void DockAtShip(){
 		GetComponent<BoxCollider2D> ().enabled = false;
+		Greifarm.GetComponent<BoxCollider2D> ().enabled = false;
 		transform.SetParent (Ship.transform, true);
 		Ship.GetComponent<ShipController> ().enabled = true;
 		transform.position = Ship.GetComponent<ShipController> ().SubHolder.position;
@@ -42,5 +63,28 @@ public class SubmarineController : MonoBehaviour {
 		Ship.GetComponent<Rigidbody2D> ().constraints = RigidbodyConstraints2D.FreezeRotation;
 		Camera.main.GetComponent<Follow> ().target = Ship.transform;
 		this.enabled = false;
+	}
+
+	void Grab(){
+		if (down) {
+			Greifarm.Translate (new Vector3 (-1, 0, 0) * Time.deltaTime * grabSpeed);
+			if(Greifarm.localPosition.y <= -1.5){
+				down = false;
+				up = true;
+			}
+		}
+		if(up){
+			Greifarm.Translate (new Vector3 (1, 0, 0) * Time.deltaTime * grabSpeed);
+			if(Greifarm.localPosition.y >= 0){
+				up = false;
+				Greifarm.transform.localPosition = new Vector3 (0, 0, 0);
+				block = false;
+			}
+		}
+	}
+
+	public void ArmUp(){
+		up = true;
+		down = false;
 	}
 }

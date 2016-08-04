@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Loot
   layers:
   - Default
   - TransparentFX
@@ -40,6 +41,9 @@ TagManager:
   m_SortingLayers:
   - name: Background
     uniqueID: 550040535
+    locked: 0
+  - name: Greifarm
+    uniqueID: 1629026777
     locked: 0
   - name: Default
     uniqueID: 0
