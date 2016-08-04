@@ -10,6 +10,17 @@ public class SubmarineController : MonoBehaviour {
 	public Transform Greifarm;
 	public float grabSpeed;
 
+	public const float maxBat = 100;
+	public float Bat = maxBat;
+	public const float maxOX = 100;
+	public float OX = maxOX;
+	public const float maxPres = 100;
+	public float Pres = 0;
+
+	public float OXNeedRate = 0.1f; //Per second
+	public float BatNeedRate = 1;
+
+
 	bool block = false;
 	bool down = false;
 	bool up = false;
@@ -20,6 +31,8 @@ public class SubmarineController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		ProcessNeeds ();
+
 		if(Input.GetKeyDown(KeyCode.E)){
 			if (up == false && block == false) {
 				down = true;
@@ -86,5 +99,27 @@ public class SubmarineController : MonoBehaviour {
 	public void ArmUp(){
 		up = true;
 		down = false;
+	}
+
+	void ProcessNeeds(){
+		Pres = Mathf.Abs (transform.position.y);
+		OX -= OXNeedRate * Time.deltaTime;
+		Bat -= BatNeedRate * Time.deltaTime;
+
+		if(transform.position.y >= 0){
+			OX = maxOX;
+		}
+
+		if(Bat <= 0){
+			Bat = 0;
+			block = true;
+		}
+		if(OX <= 0){
+			OX = 0;
+			block = true;
+		}
+		if(Pres >= maxPres){
+			block = true;
+		}
 	}
 }
