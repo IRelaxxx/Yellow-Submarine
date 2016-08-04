@@ -846,7 +846,7 @@ Prefab:
     - target: {fileID: 114000011140962870, guid: 27d9f2a40de3261498f1f346f5fd6b8b,
         type: 2}
       propertyPath: MoveSpeed
-      value: 20
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 27d9f2a40de3261498f1f346f5fd6b8b, type: 2}
