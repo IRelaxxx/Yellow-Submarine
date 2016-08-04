@@ -18,17 +18,24 @@ public class SharkAI : MonoBehaviour {
 	void FixedUpdate(){
 		if(turnsRight == false){
 			rb.velocity = new Vector2 (-1, 0) * Time.fixedDeltaTime * MoveSpeed;
-			if (Vector3.Distance (transform.position, Point1.position) < 0.5f) {
+			if (Dist (transform.position.x, Point1.position.x) < 0.5f) {
 				turnsRight = true;
 				transform.rotation = Quaternion.Euler (0, 0, 0);
 			}
 		}
 		if (turnsRight == true){
 			rb.velocity = new Vector2 (1, 0) * Time.fixedDeltaTime * MoveSpeed;
-			if (Vector3.Distance (transform.position, Point2.position) < 0.5f) {
+			if (Dist (transform.position.x, Point2.position.x) < 0.5f) {
 				turnsRight = false;
 				transform.rotation = Quaternion.Euler (0, 180, 0);
 			}
+		}
+
+		if(transform.position.y < Point1.transform.position.y){
+			rb.velocity += Vector2.up * Time.fixedDeltaTime * MoveSpeed;
+		}
+		if(transform.position.y > Point1.transform.position.y){
+			rb.velocity += Vector2.down * Time.fixedDeltaTime * MoveSpeed;
 		}
 	}
 
@@ -36,5 +43,9 @@ public class SharkAI : MonoBehaviour {
 		if(col.gameObject.GetComponent<ShipController>() != null){
 			//col.gameObject.GetComponent<ShipController> (); Take Damage
 		}
+	}
+
+	float Dist(float p1,float p2){
+		return Mathf.Abs(p1 - p2);
 	}
 }
