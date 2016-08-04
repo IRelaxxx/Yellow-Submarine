@@ -37,6 +37,7 @@ public class SubmarineController : MonoBehaviour {
 			if (up == false && block == false) {
 				down = true;
 				block = true;
+				rb.velocity = Vector2.zero;
 			}
 		}
 
