@@ -37,14 +37,16 @@ public class SubmarineController : MonoBehaviour {
 			if (up == false && block == false) {
 				down = true;
 				block = true;
-				rb.velocity = Vector2.zero;
 			}
 		}
 
 		Grab ();
 
-		if (block)
+		if (block) {
+			rb.velocity = Vector2.zero;
+			rb.angularVelocity = 0;
 			return;
+		}
 		float dist = Vector3.Distance (transform.position, Ship.transform.position);
 		if(dist < 3){
 			if (Input.GetKeyDown (KeyCode.Space)) {
@@ -62,6 +64,10 @@ public class SubmarineController : MonoBehaviour {
 
 		if(y > 0 && transform.position.y >= 0){
 			y = 0;
+		}
+		if (x == 0 && y == 0) {
+			rb.velocity = Vector2.zero;
+			rb.angularVelocity = 0;
 		}
 		rb.velocity = new Vector2 (x, y).normalized * MoveSpeed;
 	}
@@ -114,16 +120,18 @@ public class SubmarineController : MonoBehaviour {
 		if(Bat <= 0){
 			Bat = 0;
 			block = true;
-			rb.velocity = Vector2.zero;
 		}
 		if(OX <= 0){
 			OX = 0;
 			block = true;
-			rb.velocity = Vector2.zero;
 		}
 		if(Pres >= maxPres){
 			block = true;
-			rb.velocity = Vector2.zero;
 		}
+	}
+
+	public void Restock(){
+		OX = maxOX;
+		Bat = maxBat;
 	}
 }

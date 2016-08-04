@@ -48,6 +48,7 @@ public class ShipController : MonoBehaviour {
 		Sub.GetComponent<SubmarineController> ().enabled = true;
 		rb.constraints = RigidbodyConstraints2D.FreezeAll;
 		Camera.main.GetComponent<Follow> ().target = Sub.transform;
+		Sub.GetComponent<SubmarineController> ().Restock();
 		this.enabled = false;
 	}
 }
