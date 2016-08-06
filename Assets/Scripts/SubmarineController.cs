@@ -18,8 +18,11 @@ public class SubmarineController : MonoBehaviour {
 	public float OXNeedRate = 0.1f; //Per second
 	public float BatNeedRate = 1;
 
+    public UnityEngine.UI.Slider batSlider;
+    public UnityEngine.UI.Slider oxSlider;
+    public UnityEngine.UI.Slider presSlider;
 
-	bool block = false;
+    bool block = false;
 	bool down = false;
 	bool up = false;
 
@@ -69,6 +72,7 @@ public class SubmarineController : MonoBehaviour {
 		}
 		else{
 			Bat -= BatNeedRate * Time.fixedDeltaTime;
+            batSlider.value = Bat;
 		}
 		rb.velocity = new Vector2 (x, y).normalized * Stats.Instance.SubSpeed;
 	}
@@ -111,8 +115,9 @@ public class SubmarineController : MonoBehaviour {
 
 	void ProcessNeeds(){
 		Pres = Mathf.Abs (transform.position.y);
+        presSlider.value = Pres;
 		OX -= OXNeedRate * Time.deltaTime;
-
+        oxSlider.value = OX;
 		if(transform.position.y >= 0){
 			OX = maxOX;
 		}
@@ -133,5 +138,7 @@ public class SubmarineController : MonoBehaviour {
 	public void Restock(){
 		OX = maxOX;
 		Bat = maxBat;
+        batSlider.value = Bat;
+        oxSlider.value = OX;
 	}
 }
