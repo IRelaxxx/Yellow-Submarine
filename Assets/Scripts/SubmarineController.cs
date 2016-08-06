@@ -5,10 +5,8 @@ public class SubmarineController : MonoBehaviour {
 
 	Rigidbody2D rb;
 
-	public int MoveSpeed;
 	public GameObject Ship;
 	public Transform Greifarm;
-	public float grabSpeed;
 
 	public const float maxBat = 100;
 	public float Bat = maxBat;
@@ -69,7 +67,10 @@ public class SubmarineController : MonoBehaviour {
 			rb.velocity = Vector2.zero;
 			rb.angularVelocity = 0;
 		}
-		rb.velocity = new Vector2 (x, y).normalized * MoveSpeed;
+		else{
+			Bat -= BatNeedRate * Time.fixedDeltaTime;
+		}
+		rb.velocity = new Vector2 (x, y).normalized * Stats.Instance.SubSpeed;
 	}
 
 	void DockAtShip(){
@@ -87,14 +88,14 @@ public class SubmarineController : MonoBehaviour {
 
 	void Grab(){
 		if (down) {
-			Greifarm.Translate (new Vector3 (-1, 0, 0) * Time.deltaTime * grabSpeed);
+			Greifarm.Translate (new Vector3 (-1, 0, 0) * Time.deltaTime * Stats.Instance.GreifarmSpeed);
 			if(Greifarm.localPosition.y <= -2){
 				down = false;
 				up = true;
 			}
 		}
 		if(up){
-			Greifarm.Translate (new Vector3 (1, 0, 0) * Time.deltaTime * grabSpeed);
+			Greifarm.Translate (new Vector3 (1, 0, 0) * Time.deltaTime * Stats.Instance.GreifarmSpeed);
 			if(Greifarm.localPosition.y >= 0){
 				up = false;
 				Greifarm.transform.localPosition = new Vector3 (0, 0, 0);
@@ -111,7 +112,6 @@ public class SubmarineController : MonoBehaviour {
 	void ProcessNeeds(){
 		Pres = Mathf.Abs (transform.position.y);
 		OX -= OXNeedRate * Time.deltaTime;
-		Bat -= BatNeedRate * Time.deltaTime;
 
 		if(transform.position.y >= 0){
 			OX = maxOX;

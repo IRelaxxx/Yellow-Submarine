@@ -6,7 +6,6 @@ public class ShipController : MonoBehaviour {
 	bool turnsRight = false;
 	Rigidbody2D rb;
 
-	public int MoveSpeed;
 	public GameObject Sub;
 	public Transform SubHolder;
 
@@ -35,7 +34,7 @@ public class ShipController : MonoBehaviour {
 			}
 
 		}
-		rb.velocity = new Vector2 (x, 0).normalized * MoveSpeed;
+		rb.velocity = new Vector2 (x, 0).normalized * Stats.Instance.ShipSpeed;
 	}
 
 	void ReleaseSub(){

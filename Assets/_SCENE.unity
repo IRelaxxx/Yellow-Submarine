@@ -1254,6 +1254,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cd72b80421375c4bb62111661f492eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ShipSpeed: 3
+  SubSpeed: 2
+  GreifarmSpeed: 1
+  SharkSpeed: 60
+  maxBat: 100
+  maxOx: 100
+  maxPres: 20
 --- !u!4 &1220940181 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4000010605901766, guid: c53164e9cbe910a4088b642e1beb1fe5,

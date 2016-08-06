@@ -6,7 +6,6 @@ public class SharkAI : MonoBehaviour {
 	//Assumes that points are at the same height
 	public Transform Point1; //left point
 	public Transform Point2; //right point
-	public float MoveSpeed;
 
 	bool turnsRight = true;
 	Rigidbody2D rb;
@@ -17,14 +16,14 @@ public class SharkAI : MonoBehaviour {
 
 	void FixedUpdate(){
 		if(turnsRight == false){
-			rb.velocity = new Vector2 (-1, 0) * Time.fixedDeltaTime * MoveSpeed;
+			rb.velocity = new Vector2 (-1, 0) * Time.fixedDeltaTime * Stats.Instance.SharkSpeed;
 			if (Dist (transform.position.x, Point1.position.x) < 0.5f) {
 				turnsRight = true;
 				transform.rotation = Quaternion.Euler (0, 0, 0);
 			}
 		}
 		if (turnsRight == true){
-			rb.velocity = new Vector2 (1, 0) * Time.fixedDeltaTime * MoveSpeed;
+			rb.velocity = new Vector2 (1, 0) * Time.fixedDeltaTime * Stats.Instance.SharkSpeed;
 			if (Dist (transform.position.x, Point2.position.x) < 0.5f) {
 				turnsRight = false;
 				transform.rotation = Quaternion.Euler (0, 180, 0);
@@ -32,10 +31,10 @@ public class SharkAI : MonoBehaviour {
 		}
 
 		if(transform.position.y < Point1.transform.position.y){
-			rb.velocity += Vector2.up * Time.fixedDeltaTime * MoveSpeed;
+			rb.velocity += Vector2.up * Time.fixedDeltaTime * Stats.Instance.SharkSpeed;
 		}
 		if(transform.position.y > Point1.transform.position.y){
-			rb.velocity += Vector2.down * Time.fixedDeltaTime * MoveSpeed;
+			rb.velocity += Vector2.down * Time.fixedDeltaTime * Stats.Instance.SharkSpeed;
 		}
 	}
 

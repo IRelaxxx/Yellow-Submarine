@@ -3,13 +3,22 @@ using System.Collections;
 
 public class Stats : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
+	private static Stats instance;
+	public static Stats Instance {
+		get{
+			if(instance == null){
+				instance = GameObject.FindObjectOfType<Stats> ();
+			}
+			return instance;
+		}
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+
+	public float ShipSpeed;
+	public float SubSpeed;
+	public float GreifarmSpeed;
+	public float SharkSpeed;
+
+	public float maxBat;
+	public float maxOx;
+	public float maxPres;
 }
