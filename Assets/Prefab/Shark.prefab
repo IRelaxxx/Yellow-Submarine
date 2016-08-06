@@ -122,7 +122,7 @@ Transform:
   m_GameObject: {fileID: 1000011636033906}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 7.09, y: -3.53, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 4000011421678766}
@@ -174,7 +174,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Point1: {fileID: 4000011241329230}
   Point2: {fileID: 4000010686281966}
-  MoveSpeed: 1
 --- !u!212 &212000010133884612
 SpriteRenderer:
   m_ObjectHideFlags: 1
