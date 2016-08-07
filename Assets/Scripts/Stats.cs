@@ -19,6 +19,9 @@ public class Stats : MonoBehaviour {
 	public float SharkSpeed;
 
 	public float maxBat;
-	public float maxOx;
+	public float maxOX;
 	public float maxPres;
+
+	public float BatUseRate;
+	public float OXUseRate;
 }

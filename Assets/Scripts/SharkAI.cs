@@ -9,9 +9,13 @@ public class SharkAI : MonoBehaviour {
 
 	bool turnsRight = true;
 	Rigidbody2D rb;
+	float rangeLow;
+	float rangeHigh;
 
 	void Start(){
 		rb = GetComponent<Rigidbody2D> ();
+		rangeLow = Point1.transform.position.y + 0.2f;
+		rangeHigh = Point1.transform.position.y - 0.2f;
 	}
 
 	void FixedUpdate(){
@@ -30,10 +34,10 @@ public class SharkAI : MonoBehaviour {
 			}
 		}
 
-		if(transform.position.y < Point1.transform.position.y){
+		if(transform.position.y < rangeLow){
 			rb.velocity += Vector2.up * Time.fixedDeltaTime * Stats.Instance.SharkSpeed;
 		}
-		if(transform.position.y > Point1.transform.position.y){
+		if(transform.position.y > rangeHigh){
 			rb.velocity += Vector2.down * Time.fixedDeltaTime * Stats.Instance.SharkSpeed;
 		}
 	}

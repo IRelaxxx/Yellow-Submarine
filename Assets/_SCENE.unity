@@ -1927,8 +1927,10 @@ MonoBehaviour:
   GreifarmSpeed: 1
   SharkSpeed: 80
   maxBat: 100
-  maxOx: 100
+  maxOX: 100
   maxPres: 20
+  BatUseRate: 1
+  OXUseRate: 1
 --- !u!4 &1184534777 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4000011877039852, guid: 27d9f2a40de3261498f1f346f5fd6b8b,

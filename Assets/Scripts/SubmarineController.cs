@@ -8,15 +8,10 @@ public class SubmarineController : MonoBehaviour {
 	public GameObject Ship;
 	public Transform Greifarm;
 
-	public const float maxBat = 100;
-	public float Bat = maxBat;
-	public const float maxOX = 100;
-	public float OX = maxOX;
-	public const float maxPres = 100;
+	public float Bat;
+	public float OX;
 	public float Pres = 0;
 
-	public float OXNeedRate = 0.1f; //Per second
-	public float BatNeedRate = 1;
 
     public UnityEngine.UI.Slider batSlider;
     public UnityEngine.UI.Slider oxSlider;
@@ -28,9 +23,10 @@ public class SubmarineController : MonoBehaviour {
 
 	void Start () {
 		rb = GetComponent<Rigidbody2D> ();
+		Bat = Stats.Instance.maxBat;
+		OX = Stats.Instance.maxOX;
 	}
 	
-	// Update is called once per frame
 	void Update () {
 		ProcessNeeds ();
 
@@ -71,7 +67,7 @@ public class SubmarineController : MonoBehaviour {
 			rb.angularVelocity = 0;
 		}
 		else{
-			Bat -= BatNeedRate * Time.fixedDeltaTime;
+			Bat -= Stats.Instance.BatUseRate * Time.fixedDeltaTime;
             batSlider.value = Bat;
 		}
 		rb.velocity = new Vector2 (x, y).normalized * Stats.Instance.SubSpeed;
@@ -116,10 +112,10 @@ public class SubmarineController : MonoBehaviour {
 	void ProcessNeeds(){
 		Pres = Mathf.Abs (transform.position.y);
         presSlider.value = Pres;
-		OX -= OXNeedRate * Time.deltaTime;
+		OX -= Stats.Instance.OXUseRate * Time.deltaTime;
         oxSlider.value = OX;
 		if(transform.position.y >= 0){
-			OX = maxOX;
+			OX = Stats.Instance.maxOX;
 		}
 
 		if(Bat <= 0){
@@ -130,14 +126,14 @@ public class SubmarineController : MonoBehaviour {
 			OX = 0;
 			block = true;
 		}
-		if(Pres >= maxPres){
+		if(Pres >= Stats.Instance.maxPres){
 			block = true;
 		}
 	}
 
 	public void Restock(){
-		OX = maxOX;
-		Bat = maxBat;
+		OX = Stats.Instance.maxOX;
+		Bat = Stats.Instance.maxBat;
         batSlider.value = Bat;
         oxSlider.value = OX;
 	}
