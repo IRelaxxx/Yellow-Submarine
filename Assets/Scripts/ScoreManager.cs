@@ -14,4 +14,5 @@ public class ScoreManager : MonoBehaviour {
 	}
 
 	public int Score;
+    public UnityEngine.UI.Text ScoreText;
 }
