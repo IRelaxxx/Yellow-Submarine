@@ -15,4 +15,9 @@ public class ScoreManager : MonoBehaviour {
 
 	public int Score;
     public UnityEngine.UI.Text ScoreText;
+    
+    void Update ()
+    {
+        ScoreText.text = Score.ToString();
+    }
 }
