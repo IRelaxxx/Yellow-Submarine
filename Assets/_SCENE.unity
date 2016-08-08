@@ -808,7 +808,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!4 &255470253 stripped
@@ -1272,7 +1272,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000014252892634, guid: 1647256e029671a4eaa0c3a24d9fc442, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1000013134893246, guid: 1647256e029671a4eaa0c3a24d9fc442, type: 2}
       propertyPath: m_Name
@@ -2058,78 +2058,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4000010605901766, guid: c53164e9cbe910a4088b642e1beb1fe5,
     type: 2}
   m_PrefabInternal: {fileID: 705113425}
---- !u!1 &753355960 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1000011489443956, guid: de2b21e0fc15d0644896207a40b3b5c4,
-    type: 2}
-  m_PrefabInternal: {fileID: 1551100086}
---- !u!60 &753355961
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 753355960}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  m_Points:
-    m_Paths:
-    - - {x: 2.855, y: -0.39499998}
-      - {x: 2.835, y: -0.645}
-      - {x: 3.0049999, y: -0.685}
-      - {x: 3.0149999, y: -0.78499997}
-      - {x: 3.0549998, y: -0.79499996}
-      - {x: 3.355, y: -0.79499996}
-      - {x: 3.375, y: -0.775}
-      - {x: 3.375, y: -0.39499998}
-      - {x: 3.355, y: -0.375}
-      - {x: 3.3249998, y: -0.355}
-      - {x: 3.5049999, y: 0.024999999}
-      - {x: 3.5449998, y: 0.21499999}
-      - {x: 3.5449998, y: 0.405}
-      - {x: 0.66499996, y: 0.405}
-      - {x: 0.66499996, y: 0.73499995}
-      - {x: 0.645, y: 0.755}
-      - {x: -0.035, y: 0.755}
-      - {x: -0.035, y: 1.875}
-      - {x: -0.055, y: 1.895}
-      - {x: -0.175, y: 1.905}
-      - {x: 0.035, y: 2.2749999}
-      - {x: 0.024999999, y: 2.2949998}
-      - {x: -0.055, y: 2.2949998}
-      - {x: -0.565, y: 1.925}
-      - {x: -0.585, y: 1.895}
-      - {x: -1.165, y: 1.895}
-      - {x: -1.255, y: 1.8549999}
-      - {x: -1.4649999, y: 1.645}
-      - {x: -1.4449999, y: 1.5649999}
-      - {x: -1.355, y: 1.5749999}
-      - {x: -1.665, y: 1.345}
-      - {x: -1.9749999, y: 1.095}
-      - {x: -2.125, y: 1.0749999}
-      - {x: -2.305, y: 0.935}
-      - {x: -2.625, y: 0.675}
-      - {x: -2.945, y: 0.405}
-      - {x: -3.5449998, y: 0.415}
-      - {x: -3.5449998, y: 0.345}
-      - {x: -3.385, y: 0.195}
-      - {x: -3.195, y: -0.074999996}
-      - {x: -2.915, y: -0.33499998}
-      - {x: -2.705, y: -0.505}
-      - {x: -2.495, y: -0.635}
-      - {x: -2.0149999, y: -0.92499995}
-      - {x: -1.745, y: -1.105}
-      - {x: 1.9649999, y: -1.105}
-      - {x: 1.9649999, y: -0.835}
-      - {x: 2.175, y: -0.73499995}
-      - {x: 2.655, y: -0.515}
-    - - {x: 3.0349998, y: -0.385}
-      - {x: 3.0249999, y: -0.39499998}
-      - {x: 3.0249999, y: -0.435}
-      - {x: 3.0349998, y: -0.445}
 --- !u!1001 &806355296
 Prefab:
   m_ObjectHideFlags: 0
@@ -4080,11 +4008,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4000014238255308, guid: de2b21e0fc15d0644896207a40b3b5c4, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 80.86
+      value: 80.373436
       objectReference: {fileID: 0}
     - target: {fileID: 4000014238255308, guid: de2b21e0fc15d0644896207a40b3b5c4, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.2038309
       objectReference: {fileID: 0}
     - target: {fileID: 4000014238255308, guid: de2b21e0fc15d0644896207a40b3b5c4, type: 2}
       propertyPath: m_LocalPosition.z
@@ -4115,21 +4043,6 @@ Prefab:
       propertyPath: batSlider
       value: 
       objectReference: {fileID: 1776191916}
-    - target: {fileID: 212000012470042778, guid: de2b21e0fc15d0644896207a40b3b5c4,
-        type: 2}
-      propertyPath: m_SortingLayerID
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 212000011923774958, guid: de2b21e0fc15d0644896207a40b3b5c4,
-        type: 2}
-      propertyPath: m_SortingLayerID
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 212000014256670114, guid: de2b21e0fc15d0644896207a40b3b5c4,
-        type: 2}
-      propertyPath: m_SortingLayerID
-      value: 550040535
-      objectReference: {fileID: 0}
     - target: {fileID: 114000012536081552, guid: de2b21e0fc15d0644896207a40b3b5c4,
         type: 2}
       propertyPath: oxSlider
@@ -4140,28 +4053,11 @@ Prefab:
       propertyPath: presSlider
       value: 
       objectReference: {fileID: 255336239}
-    - target: {fileID: 114000012536081552, guid: de2b21e0fc15d0644896207a40b3b5c4,
-        type: 2}
-      propertyPath: OXNeedRate
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 61000013489750762, guid: de2b21e0fc15d0644896207a40b3b5c4,
-        type: 2}
-      propertyPath: m_Offset.y
-      value: 1.2787068
-      objectReference: {fileID: 0}
-    - target: {fileID: 61000013489750762, guid: de2b21e0fc15d0644896207a40b3b5c4,
-        type: 2}
-      propertyPath: m_Size.y
-      value: 2.0325866
-      objectReference: {fileID: 0}
-    - target: {fileID: 61000013842388514, guid: de2b21e0fc15d0644896207a40b3b5c4,
-        type: 2}
-      propertyPath: m_Enabled
+    - target: {fileID: 4000014238255308, guid: de2b21e0fc15d0644896207a40b3b5c4, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 61000013489750762, guid: de2b21e0fc15d0644896207a40b3b5c4, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: de2b21e0fc15d0644896207a40b3b5c4, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1557582758

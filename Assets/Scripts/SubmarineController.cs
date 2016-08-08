@@ -21,6 +21,8 @@ public class SubmarineController : MonoBehaviour {
 	bool down = false;
 	bool up = false;
 
+	const float rotDeg = 30;
+
 	void Start () {
 		rb = GetComponent<Rigidbody2D> ();
 		Bat = Stats.Instance.maxBat;
@@ -71,6 +73,22 @@ public class SubmarineController : MonoBehaviour {
             batSlider.value = Bat;
 		}
 		rb.velocity = new Vector2 (x, y).normalized * Stats.Instance.SubSpeed;
+
+		if((x == 0 && y == 0) || (x == 0 && y != 0) || (x != 0 && y == 0)){
+			transform.rotation = Quaternion.Euler (0, 0, 0);//TODO: probably less good
+		}
+		else if(x > 0 && y < 0){// nach unten rechts
+			transform.rotation = Quaternion.Euler(0,0,-rotDeg);
+		}
+		else if(x < 0 && y < 0){// nach unten links
+			transform.rotation = Quaternion.Euler(0,0,rotDeg);
+		}
+		else if(x > 0 && y > 0){// nach oben rechts
+			transform.rotation = Quaternion.Euler(0,0,rotDeg);
+		}
+		else if(x < 0 && y > 0){// nach oben links
+			transform.rotation = Quaternion.Euler(0,0,-rotDeg);
+		}
 	}
 
 	void DockAtShip(){
