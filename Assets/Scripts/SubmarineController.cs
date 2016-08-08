@@ -74,7 +74,7 @@ public class SubmarineController : MonoBehaviour {
 	}
 
 	void DockAtShip(){
-		GetComponent<BoxCollider2D> ().enabled = false;
+		GetComponent<PolygonCollider2D> ().enabled = false;
 		Greifarm.GetComponent<BoxCollider2D> ().enabled = false;
 		transform.SetParent (Ship.transform, true);
 		Ship.GetComponent<ShipController> ().enabled = true;

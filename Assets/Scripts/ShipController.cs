@@ -42,7 +42,7 @@ public class ShipController : MonoBehaviour {
 		Sub.transform.position -= Vector3.down * -2;
 		rb.Sleep ();
 		Sub.GetComponent<Rigidbody2D> ().WakeUp ();
-		Sub.GetComponent<BoxCollider2D> ().enabled = true;
+		Sub.GetComponent<PolygonCollider2D> ().enabled = true;
 		Sub.GetComponent<SubmarineController>().Greifarm.GetComponent<BoxCollider2D> ().enabled = true;
 		Sub.GetComponent<SubmarineController> ().enabled = true;
 		rb.constraints = RigidbodyConstraints2D.FreezeAll;
