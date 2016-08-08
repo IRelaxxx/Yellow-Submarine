@@ -22,7 +22,7 @@ GameObject:
   - 212: {fileID: 212000011923774958}
   - 114: {fileID: 114000012536081552}
   - 50: {fileID: 50000010668796294}
-  - 61: {fileID: 61000013842388514}
+  - 60: {fileID: 60000013372177708}
   m_Layer: 0
   m_Name: Submarine
   m_TagString: Untagged
@@ -129,7 +129,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011489443956}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 80.41241, y: 0.20304203, z: 0}
+  m_LocalPosition: {x: 80.373436, y: 0.2038309, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -171,6 +171,34 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!60 &60000013372177708
+PolygonCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010505488190}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  m_Points:
+    m_Paths:
+    - - {x: 1.905, y: 0.37}
+      - {x: 1.735, y: 0.5}
+      - {x: 0.405, y: 1.04}
+      - {x: -0.405, y: 1.04}
+      - {x: -0.405, y: 0.48}
+      - {x: -1.745, y: 0.55}
+      - {x: -2.0149999, y: 0.26}
+      - {x: -2.0149999, y: -0.68}
+      - {x: -1.745, y: -0.91999996}
+      - {x: -0.885, y: -1.04}
+      - {x: 0.895, y: -1.04}
+      - {x: 1.735, y: -0.91999996}
+      - {x: 2.0149999, y: -0.71}
+      - {x: 2.0149999, y: 0.26}
 --- !u!60 &60000013467228820
 PolygonCollider2D:
   m_ObjectHideFlags: 1
@@ -252,20 +280,6 @@ BoxCollider2D:
   m_Offset: {x: -0.024245374, y: 0.010707616}
   serializedVersion: 2
   m_Size: {x: 0.84036577, y: 0.57110924}
---- !u!61 &61000013842388514
-BoxCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000010505488190}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: -0.000004172325, y: -0.016464688}
-  serializedVersion: 2
-  m_Size: {x: 4.03, y: 1.8934041}
 --- !u!114 &114000011386676552
 MonoBehaviour:
   m_ObjectHideFlags: 1
