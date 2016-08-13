@@ -717,13 +717,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 135544968}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -59.85, y: -30.11, z: 0}
   m_LocalScale: {x: 4.6523995, y: 6.715628, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_Father: {fileID: 1790392477}
+  m_RootOrder: 10
 --- !u!4 &159327232 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4000010605901766, guid: c53164e9cbe910a4088b642e1beb1fe5,
@@ -4214,8 +4214,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Panel: {fileID: 2049819397}
-  House: {fileID: 223550880}
-  PausePanel: 0
+  UpdatePoint: {fileID: 223550882}
+  Ship: {fileID: 885296973}
 --- !u!4 &1184534777 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4000011877039852, guid: 27d9f2a40de3261498f1f346f5fd6b8b,
@@ -6207,6 +6207,7 @@ Transform:
   - {fileID: 642018638}
   - {fileID: 893673020}
   - {fileID: 967384542}
+  - {fileID: 135544970}
   m_Father: {fileID: 0}
   m_RootOrder: 3
 --- !u!1 &1795639744
