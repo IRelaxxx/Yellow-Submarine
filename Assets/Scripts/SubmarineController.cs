@@ -102,6 +102,7 @@ public class SubmarineController : MonoBehaviour {
 		Ship.GetComponent<Rigidbody2D> ().WakeUp ();
 		Ship.GetComponent<Rigidbody2D> ().constraints = RigidbodyConstraints2D.FreezeRotation;
 		Camera.main.GetComponent<Follow> ().target = Ship.transform;
+		Restock ();
 		this.enabled = false;
 	}
 
