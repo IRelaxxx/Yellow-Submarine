@@ -12,10 +12,11 @@ public class Upgrade : MonoBehaviour
 
 	void Start () {
 		for(int i = 0; i < UpgradeList.Length; i++) {
+			UpgradeDta u2 = UpgradeList [i];
 			GameObject btn = ((GameObject)Instantiate(upgradeButtonPrefab));
 			btn.transform.SetParent(Panel, false);
-			btn.GetComponent<Button>().onClick.AddListener( () => { ProcessUpdate(UpgradeList[i]); } );
-			btn.GetComponent<Image> ().sprite = UpgradeList[i].Icon;
+			btn.GetComponent<Button>().onClick.AddListener( () => { ProcessUpdate(u2); } );
+			btn.GetComponent<Image> ().sprite = u2.Icon;
 		}
 	}
 
