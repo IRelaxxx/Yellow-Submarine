@@ -4038,6 +4038,7 @@ GameObject:
   - 114: {fileID: 1166816658}
   - 114: {fileID: 1166816660}
   - 114: {fileID: 1166816661}
+  - 114: {fileID: 1166816662}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -4117,6 +4118,20 @@ MonoBehaviour:
   - Text: 10 More OX Max
     Cost: 200
     Icon: {fileID: 21300000, guid: a1203f0a4d037d946850327fc8d3ea0c, type: 3}
+--- !u!114 &1166816662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1166816657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f5659708b30aa64fa9387dcfa6ba8fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pres: {fileID: 255336239}
+  bat: {fileID: 1776191916}
+  ox: {fileID: 340740463}
 --- !u!4 &1184534777 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4000011877039852, guid: 27d9f2a40de3261498f1f346f5fd6b8b,

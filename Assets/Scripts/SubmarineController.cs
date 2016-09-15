@@ -23,6 +23,9 @@ public class SubmarineController : MonoBehaviour {
 
 	const float rotDeg = 30;
 
+    private const int maxHealth = 100;
+    public int Health = maxHealth;
+
 	void Start () {
 		rb = GetComponent<Rigidbody2D> ();
 		Bat = Stats.Instance.maxBat;
@@ -157,4 +160,13 @@ public class SubmarineController : MonoBehaviour {
         batSlider.value = Bat;
         oxSlider.value = OX;
 	}
+
+
+    public void Damage(int amt){
+        Health -= amt;
+
+        if(Health <= 0){
+            //Gameover
+        }
+    }
 }

@@ -7,6 +7,8 @@ public class SharkAI : MonoBehaviour {
 	public Transform Point1; //left point
 	public Transform Point2; //right point
 
+    public int Damage = 10;
+
 	bool turnsRight = true;
 	Rigidbody2D rb;
 	float rangeLow;
@@ -44,7 +46,7 @@ public class SharkAI : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D col){
 		if(col.gameObject.GetComponent<ShipController>() != null){
-			//col.gameObject.GetComponent<ShipController> (); Take Damage
+            col.gameObject.GetComponent<SubmarineController>().Damage(Damage);
 		}
 	}
 

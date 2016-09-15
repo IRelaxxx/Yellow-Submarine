@@ -15,7 +15,7 @@ public class Upgrade : MonoBehaviour
 			UpgradeDta u2 = UpgradeList [i];
 			GameObject btn = ((GameObject)Instantiate(upgradeButtonPrefab));
 			btn.transform.SetParent(Panel, false);
-			btn.GetComponent<Button>().onClick.AddListener( () => { ProcessUpdate(u2); } );
+			btn.GetComponent<Button>().onClick.AddListener( () => { ProcessUpdate(u2,btn); } );
 			btn.GetComponent<Image> ().sprite = u2.Icon;
 		}
 	}
@@ -55,17 +55,33 @@ public class Upgrade : MonoBehaviour
 	}
 
 	public UpgradeDta[] UpgradeList = {
-		new UpgradeDta("10 More Pressure Max", 200, null, (u) => {Stats.Instance.maxPres += 10;}),
-		new UpgradeDta("10 More Bat Max", 200, null, (u) => {Stats.Instance.maxBat += 10;}),
-		new UpgradeDta("10 More OX Max", 200, null, (u) => {Stats.Instance.maxOX += 10;})
+        new UpgradeDta("10 More Pressure Max", 200, null, (u) => {AddPresMax(10);}),
+        new UpgradeDta("10 More Bat Max", 200, null, (u) => {AddBatMax(10);}),
+        new UpgradeDta("10 More OX Max", 200, null, (u) => {AddOXMax(10);})
 	};
 
-	void ProcessUpdate(UpgradeDta upgrade){
+    void ProcessUpdate(UpgradeDta upgrade, GameObject go){
 		if(ScoreManager.Instance.Score < upgrade.Cost){
 			return;
 		}
 
 		ScoreManager.Instance.Score -= upgrade.Cost;
 		upgrade.OnUnlock (upgrade);
+        Destroy(go);
 	}
+
+    static void AddPresMax(int amt){
+        Stats.Instance.maxPres += amt;
+        UIElements.Instance.pres.maxValue += amt;
+    }
+
+    static void AddBatMax(int amt){
+        Stats.Instance.maxBat += amt;
+        UIElements.Instance.bat.maxValue += amt;
+    }
+
+    static void AddOXMax(int amt){
+        Stats.Instance.maxOX += amt;
+        UIElements.Instance.ox.maxValue += amt;
+    }
 }
