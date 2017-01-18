@@ -45,7 +45,7 @@ public class SharkAI : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D(Collision2D col){
-		if(col.gameObject.GetComponent<ShipController>() != null){
+        if (col.gameObject.GetComponent<SubmarineController>() != null){
             col.gameObject.GetComponent<SubmarineController>().Damage(Damage);
 		}
 	}
