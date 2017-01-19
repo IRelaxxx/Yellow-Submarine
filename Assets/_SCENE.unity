@@ -5388,6 +5388,11 @@ Prefab:
       propertyPath: presSlider
       value: 
       objectReference: {fileID: 255336239}
+    - target: {fileID: 114000012536081552, guid: de2b21e0fc15d0644896207a40b3b5c4,
+        type: 2}
+      propertyPath: maximumhack
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: de2b21e0fc15d0644896207a40b3b5c4, type: 2}
   m_IsPrefabParent: 0
