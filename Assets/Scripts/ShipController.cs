@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
 using System.Collections;
 
 public class ShipController : MonoBehaviour {
@@ -20,7 +21,7 @@ public class ShipController : MonoBehaviour {
 	}
 
 	void FixedUpdate(){
-		float x = Input.GetAxis ("Horizontal") * Time.fixedDeltaTime;
+		float x = CrossPlatformInputManager.GetAxis ("Horizontal") * Time.fixedDeltaTime;
 		if(x > 0){
 			if(turnsRight == false){
 				turnsRight = true;

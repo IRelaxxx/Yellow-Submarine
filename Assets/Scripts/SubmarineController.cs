@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
 using System.Collections;
 
 public class SubmarineController : MonoBehaviour {
@@ -61,8 +62,8 @@ public class SubmarineController : MonoBehaviour {
 		if (block)
 			return;
 		
-		float x = Input.GetAxis ("Horizontal") * Time.fixedDeltaTime;
-		float y = Input.GetAxis ("Vertical") * Time.fixedDeltaTime;
+		float x = CrossPlatformInputManager.GetAxis ("Horizontal") * Time.fixedDeltaTime;
+		float y = CrossPlatformInputManager.GetAxis ("Vertical") * Time.fixedDeltaTime;
 
 		if(y > 0 && transform.position.y >= 0){
 			y = 0;
@@ -75,8 +76,13 @@ public class SubmarineController : MonoBehaviour {
 			Bat -= Stats.Instance.BatUseRate * Time.fixedDeltaTime;
             batSlider.value = Bat;
 		}
-		rb.velocity = new Vector2 (x, y).normalized * Stats.Instance.SubSpeed;
+        Vector3 delta = new Vector3(x, y, 0);
+		rb.velocity = delta.normalized * Stats.Instance.SubSpeed;
+        /*
+        float angle = Vector2.Angle(Vector2.left, delta) - 90;
+        transform.rotation = Quaternion.Euler(0, 0, -angle);*/
 
+        /*
 		if((x == 0 && y == 0) || (x == 0 && y != 0) || (x != 0 && y == 0)){
 			transform.rotation = Quaternion.Euler (0, 0, 0);//TODO: probably less good
 		}
@@ -91,10 +97,10 @@ public class SubmarineController : MonoBehaviour {
 		}
 		else if(x < 0 && y > 0){// nach oben links
 			transform.rotation = Quaternion.Euler(0,0,-rotDeg);
-		}
-	}
+		}*/
+    }
 
-	void DockAtShip(){
+    void DockAtShip(){
 		transform.rotation = Quaternion.Euler (0, 0, 0);
 		GetComponent<PolygonCollider2D> ().enabled = false;
 		Greifarm.GetComponent<BoxCollider2D> ().enabled = false;
