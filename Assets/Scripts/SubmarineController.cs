@@ -38,15 +38,6 @@ public class SubmarineController : MonoBehaviour
     {
         ProcessNeeds();
 
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            if (up == false && block == false)
-            {
-                down = true;
-                block = true;
-            }
-        }
-
         Grab();
 
         if (block)
@@ -139,6 +130,15 @@ public class SubmarineController : MonoBehaviour
                 Greifarm.transform.localPosition = new Vector3(0, 0, 0);
                 block = false;
             }
+        }
+    }
+
+    public void ArmDown()
+    {
+        if (up == false && block == false)
+        {
+            down = true;
+            block = true;
         }
     }
 
