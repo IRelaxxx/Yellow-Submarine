@@ -5,14 +5,12 @@ using UnityEngine.UI;
 
 public class Upgrade : MonoBehaviour
 {
-	public Transform Panel;
-	public Transform UpdatePoint;
-	public Transform Ship;
+    public Transform Panel;
 	public GameObject upgradeButtonPrefab;
 
 	void Start () {
 		for(int i = 0; i < UpgradeList.Length; i++) {
-			UpgradeDta u2 = UpgradeList [i];
+			UpgradeData u2 = UpgradeList [i];
 			GameObject btn = ((GameObject)Instantiate(upgradeButtonPrefab));
 			btn.transform.SetParent(Panel, false);
 			btn.GetComponent<Button>().onClick.AddListener( () => { ProcessUpdate(u2,btn); } );
@@ -20,33 +18,14 @@ public class Upgrade : MonoBehaviour
 		}
 	}
 
-
-    void Update()
-    {
-		if (!Panel.gameObject.activeSelf)
-        {
-			if (Vector3.Distance (Ship.position, UpdatePoint.position) < 10) {
-				if (Input.GetKeyDown (KeyCode.Tab)) {
-					Panel.gameObject.SetActive (true);
-					Time.timeScale = 0;
-				}
-			}
-        }
-        else if (Input.GetKeyDown(KeyCode.Tab))
-        {
-			Panel.gameObject.SetActive(false);
-			Time.timeScale = 1;
-        }
-    }
-
 	[Serializable]
-	public class UpgradeDta{
+	public class UpgradeData{
 		public string Text ="";
 		public int Cost = 0;
 		public Sprite Icon = null;
-		public Action<UpgradeDta> OnUnlock = null;
+		public Action<UpgradeData> OnUnlock = null;
 
-		public UpgradeDta(string text, int cost, Sprite icon, Action<UpgradeDta> onUnlock){
+		public UpgradeData(string text, int cost, Sprite icon, Action<UpgradeData> onUnlock){
 			Text = text;
 			Cost = cost;
 			Icon = icon;
@@ -54,13 +33,13 @@ public class Upgrade : MonoBehaviour
 		}
 	}
 
-	public UpgradeDta[] UpgradeList = {
-        new UpgradeDta("10 More Pressure Max", 200, null, (u) => {AddPresMax(10);}),
-        new UpgradeDta("10 More Bat Max", 200, null, (u) => {AddBatMax(10);}),
-        new UpgradeDta("10 More OX Max", 200, null, (u) => {AddOXMax(10);})
+	public UpgradeData[] UpgradeList = {
+        new UpgradeData("10 More Pressure Max", 200, null, (u) => {AddPresMax(10);}),
+        new UpgradeData("10 More Bat Max", 200, null, (u) => {AddBatMax(10);}),
+        new UpgradeData("10 More OX Max", 200, null, (u) => {AddOXMax(10);})
 	};
 
-    void ProcessUpdate(UpgradeDta upgrade, GameObject go){
+    void ProcessUpdate(UpgradeData upgrade, GameObject go){
 		if(ScoreManager.Instance.Score < upgrade.Cost){
 			return;
 		}
