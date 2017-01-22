@@ -4,7 +4,7 @@ using System.Collections;
 public class Stats : MonoBehaviour {
 
 	private static Stats instance;
-	public static Stats Instance {
+	public static Stats GetInstance {
 		get{
 			if(instance == null){
 				instance = GameObject.FindObjectOfType<Stats> ();
@@ -24,4 +24,7 @@ public class Stats : MonoBehaviour {
 
 	public float BatUseRate;
 	public float OXUseRate;
+
+    private int score;
+    public int Score { get { return score; } set { score = value; UIElements.GetInstance.ScoreText.text = score.ToString(); } }
 }

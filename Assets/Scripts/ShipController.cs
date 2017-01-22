@@ -12,7 +12,7 @@ public class ShipController : MonoBehaviour
     public GameObject Sub;
     public Transform SubHolder;
 
-    private bool subDocked = true;
+    public bool subDocked = true;
 
     void Start()
     {
@@ -52,11 +52,11 @@ public class ShipController : MonoBehaviour
                 }
 
             }
-            rb.velocity = new Vector2(x, 0).normalized * Stats.Instance.ShipSpeed;
+            rb.velocity = new Vector2(x, 0).normalized * Stats.GetInstance.ShipSpeed;
         }
     }
 
-    void ReleaseSub()
+    public void ReleaseSub(bool restock)
     {
         subDocked = false;
         Sub.transform.SetParent(null, true);
@@ -68,7 +68,10 @@ public class ShipController : MonoBehaviour
         Sub.GetComponent<SubmarineController>().enabled = true;
         rb.constraints = RigidbodyConstraints2D.FreezeAll;
         Camera.main.GetComponent<Follow>().target = Sub.transform;
-        Sub.GetComponent<SubmarineController>().Restock();
+        if (restock)
+        {
+            Sub.GetComponent<SubmarineController>().Restock();
+        }
         //this.enabled = false;
     }
 
@@ -76,7 +79,7 @@ public class ShipController : MonoBehaviour
     {
         if (subDocked == true)
         {
-            ReleaseSub();
+            ReleaseSub(true);
         }
         else
         {

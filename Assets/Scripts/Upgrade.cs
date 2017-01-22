@@ -40,27 +40,27 @@ public class Upgrade : MonoBehaviour
 	};
 
     void ProcessUpdate(UpgradeData upgrade, GameObject go){
-		if(ScoreManager.Instance.Score < upgrade.Cost){
+		if(Stats.GetInstance.Score < upgrade.Cost){
 			return;
 		}
 
-		ScoreManager.Instance.Score -= upgrade.Cost;
+        Stats.GetInstance.Score -= upgrade.Cost;
 		upgrade.OnUnlock (upgrade);
         Destroy(go);
 	}
 
     static void AddPresMax(int amt){
-        Stats.Instance.maxPres += amt;
-        UIElements.Instance.pres.maxValue += amt;
+        Stats.GetInstance.maxPres += amt;
+        UIElements.GetInstance.pres.maxValue += amt;
     }
 
     static void AddBatMax(int amt){
-        Stats.Instance.maxBat += amt;
-        UIElements.Instance.bat.maxValue += amt;
+        Stats.GetInstance.maxBat += amt;
+        UIElements.GetInstance.bat.maxValue += amt;
     }
 
     static void AddOXMax(int amt){
-        Stats.Instance.maxOX += amt;
-        UIElements.Instance.ox.maxValue += amt;
+        Stats.GetInstance.maxOX += amt;
+        UIElements.GetInstance.ox.maxValue += amt;
     }
 }
