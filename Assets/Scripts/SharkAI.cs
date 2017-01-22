@@ -20,6 +20,27 @@ public class SharkAI : MonoBehaviour {
 		rangeHigh = Point1.transform.position.y - 0.2f;
 	}
 
+
+    //Really cancerous code
+    public void SetTurn(bool turn)
+    {
+        if (turn)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+        else
+        {
+            transform.rotation = Quaternion.Euler(0, 180, 0);
+        }
+
+        turnsRight = turn;
+    }
+
+    public bool TurnsRight()
+    {
+        return turnsRight;
+    }
+
 	void FixedUpdate(){
 		if(turnsRight == false){
 			rb.velocity = new Vector2 (-1, 0) * Time.fixedDeltaTime * Stats.GetInstance.SharkSpeed;

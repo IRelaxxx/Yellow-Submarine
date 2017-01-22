@@ -41,8 +41,16 @@ public class SaveManager : MonoBehaviour
             PlayerPrefs.SetInt("Upgrade_" + i.ToString(), upgrades[i] ? 1 : 0);
         }
 
-        //TODO: Save shark pos
-        //TODO: Grabing, save before?
+        //HAIE MÜSSEN NUMMERIRT WERDEN
+        SharkAI[] sharks = GameObject.FindObjectsOfType<SharkAI>();
+
+        for(int i = 0; i < sharks.Length; i++)
+        {
+            PlayerPrefs.SetFloat("Shark_" + i.ToString() + "_X", sharks[i].gameObject.transform.position.x);
+            PlayerPrefs.SetFloat("Shark_" + i.ToString() + "_Y", sharks[i].gameObject.transform.position.y);
+            PlayerPrefs.SetInt("Shark_" + i.ToString() + "_turnRight", sharks[i].TurnsRight() ? 1 : 0);
+        }
+
         PlayerPrefs.Save();
     }
 
@@ -70,6 +78,18 @@ public class SaveManager : MonoBehaviour
         stats.Score = PlayerPrefs.GetInt("Score");
         sub.OX = PlayerPrefs.GetFloat("OX");
         sub.Bat = PlayerPrefs.GetFloat("Bat");
+
+        SharkAI[] sharks = GameObject.FindObjectsOfType<SharkAI>();
+
+        for(int i = 0; i < sharks.Length; i++)
+        {
+            sharks[i].SetTurn((PlayerPrefs.GetInt("Shark_" + i.ToString() + "_turnRight") == 1));
+
+            Vector3 newPos = new Vector3();
+            newPos.x = PlayerPrefs.GetFloat("Shark_" + i.ToString() + "_X");
+            newPos.y = PlayerPrefs.GetFloat("Shark_" + i.ToString() + "_Y");
+            sharks[i].gameObject.transform.position = newPos;
+        }
 
     }
 }
