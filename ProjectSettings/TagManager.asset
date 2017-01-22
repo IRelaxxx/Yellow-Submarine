@@ -54,3 +54,6 @@ TagManager:
   - name: Ship
     uniqueID: 1185447499
     locked: 0
+  - name: Shader
+    uniqueID: 3967782521
+    locked: 0
