@@ -30,8 +30,8 @@ public class SubmarineController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        Bat = Stats.Instance.maxBat;
-        OX = Stats.Instance.maxOX;
+        Bat = Stats.GetInstance.maxBat;
+        OX = Stats.GetInstance.maxOX;
     }
 
     void Update()
@@ -67,11 +67,11 @@ public class SubmarineController : MonoBehaviour
         }
         else
         {
-            Bat -= Stats.Instance.BatUseRate * Time.fixedDeltaTime;
+            Bat -= Stats.GetInstance.BatUseRate * Time.fixedDeltaTime;
             batSlider.value = Bat;
         }
         Vector3 delta = new Vector3(x, y, 0);
-        rb.velocity = delta.normalized * Stats.Instance.SubSpeed;
+        rb.velocity = delta.normalized * Stats.GetInstance.SubSpeed;
         /*
         float angle = Vector2.Angle(Vector2.left, delta) - 90;
         transform.rotation = Quaternion.Euler(0, 0, -angle);*/
@@ -114,7 +114,7 @@ public class SubmarineController : MonoBehaviour
     {
         if (down)
         {
-            Greifarm.Translate(new Vector3(-1, 0, 0) * Time.deltaTime * Stats.Instance.GreifarmSpeed);
+            Greifarm.Translate(new Vector3(-1, 0, 0) * Time.deltaTime * Stats.GetInstance.GreifarmSpeed);
             if (Greifarm.localPosition.y <= -2)
             {
                 down = false;
@@ -123,7 +123,7 @@ public class SubmarineController : MonoBehaviour
         }
         if (up)
         {
-            Greifarm.Translate(new Vector3(1, 0, 0) * Time.deltaTime * Stats.Instance.GreifarmSpeed);
+            Greifarm.Translate(new Vector3(1, 0, 0) * Time.deltaTime * Stats.GetInstance.GreifarmSpeed);
             if (Greifarm.localPosition.y >= 0)
             {
                 up = false;
@@ -152,11 +152,11 @@ public class SubmarineController : MonoBehaviour
     {
         Pres = Mathf.Abs(transform.position.y);
         presSlider.value = Pres;
-        OX -= Stats.Instance.OXUseRate * Time.deltaTime;
+        OX -= Stats.GetInstance.OXUseRate * Time.deltaTime;
         oxSlider.value = OX;
         if (transform.position.y >= 0)
         {
-            OX = Stats.Instance.maxOX;
+            OX = Stats.GetInstance.maxOX;
         }
 
         if (Bat <= 0)
@@ -169,7 +169,7 @@ public class SubmarineController : MonoBehaviour
             OX = 0;
             block = true;
         }
-        if (Pres >= Stats.Instance.maxPres)
+        if (Pres >= Stats.GetInstance.maxPres)
         {
             block = true;
         }
@@ -177,8 +177,8 @@ public class SubmarineController : MonoBehaviour
 
     public void Restock()
     {
-        OX = Stats.Instance.maxOX;
-        Bat = Stats.Instance.maxBat;
+        OX = Stats.GetInstance.maxOX;
+        Bat = Stats.GetInstance.maxBat;
         batSlider.value = Bat;
         oxSlider.value = OX;
     }

@@ -20,16 +20,37 @@ public class SharkAI : MonoBehaviour {
 		rangeHigh = Point1.transform.position.y - 0.2f;
 	}
 
+
+    //Really cancerous code
+    public void SetTurn(bool turn)
+    {
+        if (turn)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+        else
+        {
+            transform.rotation = Quaternion.Euler(0, 180, 0);
+        }
+
+        turnsRight = turn;
+    }
+
+    public bool TurnsRight()
+    {
+        return turnsRight;
+    }
+
 	void FixedUpdate(){
 		if(turnsRight == false){
-			rb.velocity = new Vector2 (-1, 0) * Time.fixedDeltaTime * Stats.Instance.SharkSpeed;
+			rb.velocity = new Vector2 (-1, 0) * Time.fixedDeltaTime * Stats.GetInstance.SharkSpeed;
 			if (Dist (transform.position.x, Point1.position.x) < 0.5f) {
 				turnsRight = true;
 				transform.rotation = Quaternion.Euler (0, 0, 0);
 			}
 		}
 		if (turnsRight == true){
-			rb.velocity = new Vector2 (1, 0) * Time.fixedDeltaTime * Stats.Instance.SharkSpeed;
+			rb.velocity = new Vector2 (1, 0) * Time.fixedDeltaTime * Stats.GetInstance.SharkSpeed;
 			if (Dist (transform.position.x, Point2.position.x) < 0.5f) {
 				turnsRight = false;
 				transform.rotation = Quaternion.Euler (0, 180, 0);
@@ -37,10 +58,10 @@ public class SharkAI : MonoBehaviour {
 		}
 
 		if(transform.position.y < rangeLow){
-			rb.velocity += Vector2.up * Time.fixedDeltaTime * Stats.Instance.SharkSpeed;
+			rb.velocity += Vector2.up * Time.fixedDeltaTime * Stats.GetInstance.SharkSpeed;
 		}
 		if(transform.position.y > rangeHigh){
-			rb.velocity += Vector2.down * Time.fixedDeltaTime * Stats.Instance.SharkSpeed;
+			rb.velocity += Vector2.down * Time.fixedDeltaTime * Stats.GetInstance.SharkSpeed;
 		}
 	}
 
