@@ -34,14 +34,30 @@ public class SaveManager : MonoBehaviour
         PlayerPrefs.SetFloat("OX", sub.OX);
         PlayerPrefs.SetFloat("Bat", sub.Bat);
 
+        //Upgrades
+        bool[] upgrades = Upgrade.GetInstance.UpgradeAcquired;
+        for(int i = 0; i < upgrades.Length; i++)
+        {
+            PlayerPrefs.SetInt("Upgrade_" + i.ToString(), upgrades[i] ? 1 : 0);
+        }
+
         //TODO: Save shark pos
-        //TODO: save upgrades
         //TODO: Grabing, save before?
         PlayerPrefs.Save();
     }
 
     public void LoadGame()
     {
+        //Use local copy of upgrade?
+        int count = Upgrade.GetInstance.UpgradeCount;
+        for(int i = 0; i < count; i++)
+        {
+            if(PlayerPrefs.GetInt("Upgrade_" + i.ToString()) == 1)
+            {
+                Upgrade.GetInstance.ApplyUpgrade(i);
+            }
+        }
+        Upgrade.GetInstance.RebuildUpgradeUI();
         //TODO: Level defaults
         scontroller.subDocked = (PlayerPrefs.GetInt("subDocked") == 1);//True if docked else false
 

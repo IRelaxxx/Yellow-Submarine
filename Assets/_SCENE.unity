@@ -4907,16 +4907,21 @@ MonoBehaviour:
   Panel: {fileID: 2049819398}
   upgradeButtonPrefab: {fileID: 1000013396029980, guid: ba3eda85623aecd4585c80f0edd8c249,
     type: 2}
+  UpgradeAcquired: 
+  UpgradeCount: 0
   UpgradeList:
   - Text: 10 More Pressure Max
     Cost: 200
     Icon: {fileID: 21300000, guid: d75d8dbbd5728d041990052335199dd4, type: 3}
+    Id: 0
   - Text: 10 More Bat Max
     Cost: 200
     Icon: {fileID: 21300000, guid: d58870ec4002c6d44b2fa1cdf1c258f2, type: 3}
+    Id: 0
   - Text: 10 More OX Max
     Cost: 200
     Icon: {fileID: 21300000, guid: a1203f0a4d037d946850327fc8d3ea0c, type: 3}
+    Id: 0
 --- !u!114 &1166816662
 MonoBehaviour:
   m_ObjectHideFlags: 0
