@@ -7,7 +7,7 @@ public class Greifarm : MonoBehaviour {
 		if (col.gameObject.tag == "Loot") {
 			Destroy (col.gameObject);
 			transform.parent.GetComponent<SubmarineController> ().ArmUp ();
-			ScoreManager.Instance.Score += 100;
+			Stats.GetInstance.Score += 100;
 		}
 	}
 }
