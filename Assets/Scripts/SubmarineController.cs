@@ -72,26 +72,23 @@ public class SubmarineController : MonoBehaviour
         }
         Vector3 delta = new Vector3(x, y, 0);
         rb.velocity = delta.normalized * Stats.Instance.SubSpeed;
-        /*
-        float angle = Vector2.Angle(Vector2.left, delta) - 90;
-        transform.rotation = Quaternion.Euler(0, 0, -angle);*/
 
-        /*
-		if((x == 0 && y == 0) || (x == 0 && y != 0) || (x != 0 && y == 0)){
+		if((x == 0 && y == 0) || (x == 0 && y != 0) || (x != 0 && y == 0) /*|| Mathf.Abs(y) <= 0.2f || Mathf.Abs(x) <= 0.2f*/)
+        {
 			transform.rotation = Quaternion.Euler (0, 0, 0);//TODO: probably less good
 		}
 		else if(x > 0 && y < 0){// nach unten rechts
-			transform.rotation = Quaternion.Euler(0,0,-rotDeg);
+			transform.rotation = Quaternion.Euler(0,0,-Vector2.Angle(Vector2.right, delta));
 		}
 		else if(x < 0 && y < 0){// nach unten links
-			transform.rotation = Quaternion.Euler(0,0,rotDeg);
+			transform.rotation = Quaternion.Euler(0,0, Vector2.Angle(Vector2.left, delta));
 		}
 		else if(x > 0 && y > 0){// nach oben rechts
-			transform.rotation = Quaternion.Euler(0,0,rotDeg);
+			transform.rotation = Quaternion.Euler(0,0, Vector2.Angle(Vector2.right, delta));
 		}
 		else if(x < 0 && y > 0){// nach oben links
-			transform.rotation = Quaternion.Euler(0,0,-rotDeg);
-		}*/
+			transform.rotation = Quaternion.Euler(0,0,-Vector2.Angle(Vector2.left, delta));
+		}
     }
 
     public void DockAtShip()
