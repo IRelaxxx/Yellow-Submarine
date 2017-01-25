@@ -10,11 +10,12 @@ public class SubmarineController : MonoBehaviour
 
     public GameObject Ship;
     public Transform Greifarm;
+    public GameObject BatDisplay;
 
     public float Bat;
     public float OX;
     public float Pres = 0;
-
+    public float BatValue;
 
     public UnityEngine.UI.Slider batSlider;
     public UnityEngine.UI.Slider oxSlider;
@@ -89,6 +90,19 @@ public class SubmarineController : MonoBehaviour
 		else if(x < 0 && y > 0){// nach oben links
 			transform.rotation = Quaternion.Euler(0,0,-Vector2.Angle(Vector2.left, delta));
 		}
+
+        if (Bat > 0.5 * Stats.GetInstance.maxBat)
+        {
+            BatValue = -135 + 270* (1-(Bat / Stats.GetInstance.maxBat));
+            BatDisplay.transform.rotation = Quaternion.Euler(0, 0, BatValue);
+        }
+        else if (Bat <= 0.5 * Stats.GetInstance.maxBat)
+        {
+            BatValue = 135 - 270 * (Bat / Stats.GetInstance.maxBat);
+            BatDisplay.transform.rotation = Quaternion.Euler(0, 0, BatValue);
+        }
+    
+    
     }
 
     public void DockAtShip()
